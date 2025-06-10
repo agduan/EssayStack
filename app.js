@@ -54,9 +54,12 @@ db.ref('essays').on('value', (snapshot) => {
     try {
       hostname = new URL(link).hostname.replace('www.', '');
     } catch (_) {}
-
-    div.innerHTML = `
+    
+    // essay box display, added READ/UNREAD
+    div.innerHTML = `<div style="display: flex; justify-content: space-between; align-items: baseline;">
       <h3><a href="${link || '#'}" target="_blank">${title}</a></h3>
+      <span style="color: gray; font-size: 0.9em;">${status.toUpperCase()}</span>
+</div>
       ${hostname ? `<p class="hostname">${hostname}</p>` : ""}
       <p class="notes">${notes}</p>
       <p class="date">${new Date(dateAdded).toLocaleDateString()}</p>
