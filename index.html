@@ -14,7 +14,7 @@
     <h1>EssayStack</h1>
     <p>A simple bookmark tracker to save interesting essays and websites. Sorted by read status, priority, and date.</p>
     <p id="description"> Note: For security reasons, write access for adding, modifying, and deleting essays has been disabled on the public website. To host this project on your own, clone the repo, use your own Firebase database, and update firebaseConfig as necessary.</p>
-    <p id="description"> For now, enjoy the <a href="https://alexandraduan.wiki">author</a>'s recs below. Happy reading!</p>
+    <p id="description"> For now, enjoy the <a href="https://alexandraduan.wiki">author</a>'s recommentations below. Happy reading!</p>
 
     <form id="essayForm">
         <input type="text" id="title" placeholder="Title" required>
@@ -31,7 +31,19 @@
       </button>
     </form>
 
+    <div>
+        Priority status colors:
+        <span style="color: #ff4d4d;">high,</span>
+        <span style="color: #ffd11a;">medium,</span>
+        <span style="color: #66cc66;">low</span>
+    </div>
+
     <!-- Essay blocks -->
     <div id="essayList"></div>
 </body>
+
+<footer style="margin-top: 40px; font-size: 14px; color: #999;">
+  Made by Alexandra Duan, who has many more essays than this left to read · <a href="https://github.com/agduan">GitHub</a>
+</footer>
+
 </html>
