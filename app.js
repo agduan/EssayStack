@@ -66,7 +66,7 @@ db.ref('essays').on('value', (snapshot) => {
 
       ${hostname ? `<p class="hostname">${hostname}</p>` : ""}
       <p class="notes">${notes}</p>
-      <p class="date">${new Date(dateAdded).toLocaleDateString()}</p>
+      <p class="date">added ${new Date(dateAdded).toLocaleDateString()}</p>
       
       <button class="toggle">
         ${status === "unread" ? ".pop()" : "un-pop"}<br>
