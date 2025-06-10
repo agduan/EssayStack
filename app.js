@@ -23,7 +23,7 @@ document.getElementById('essayForm').addEventListener('submit', function(e) {
         notes: document.getElementById('notes').value,
         priority: document.getElementById('priority').value,
         dateAdded: new Date().toISOString(),
-        // status: "unread" - TODO
+        status: "unread"
     };
 
     db.ref('essays').push(newEssay);
@@ -63,3 +63,14 @@ db.ref('essays').on('value', (snapshot) => {
     list.appendChild(div);
   });
 });
+
+// toggle read/unread
+function toggleStatus(id, currentStatus) {
+    const newStatus = currentStatus === "read" ? "unread" : "read";
+    db.ref('essays/' + id).update({ status: newStatus });
+}
+
+// delete essay
+function deleteEssay(id) {
+    db.ref('essays/' + id).remove();
+}
