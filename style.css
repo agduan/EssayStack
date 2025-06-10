@@ -1,0 +1,102 @@
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 40px;
+}
+
+#description {
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 20px;
+}
+
+input, textarea, select, button {
+    font-family: inherit;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input, textarea, select {
+    display: block;
+    margin: 10px 0;
+    padding: 8px;
+    width: 300px;
+}
+
+button {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#essayList {
+    margin-top: 30px;
+}
+
+.essay {
+    border: 1px solid #ddd;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    max-width: 500px;
+    background-color: #fafafa;
+    font-size: 14px;
+}
+
+.high {
+    border-left: 4px solid #ff4d4d; /* red */
+}
+.medium {
+    border-left: 4px solid #ffd11a; /* yellow */
+}
+.low {
+    border-left: 4px solid #66cc66; /* green */
+}
+
+/* .read {
+    opacity: 0.8;
+} */
+
+h3 {
+    margin: 0 0 4px 0;
+    font-size: 16px;
+}
+
+.hostname {
+    color: gray;
+    font-size: 12px;
+    margin: 2px 0 6px 0;
+}
+
+.notes {
+    margin: 6px 0;
+    font-size: 13px;
+}
+
+.date {
+    font-size: 11px;
+    color: #777;
+}
+
+/* ADD - BUTTONS, EDIT MODE - fix!!! */
+/* .small-btn {
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 2px 6px;
+    margin-right: 8px;
+}
+
+.small-btn:hover {
+    text-decoration: underline;
+}
+
+.edit-mode input, .edit-mode textarea, .edit-mode select {
+    display: block;
+    margin: 6px 0;
+    padding: 6px;
+    width: 100%;
+    font-size: 14px;
+} */

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EssayStack</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- firebase app here -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+    <script defer src="app.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>EssayStack</h1>
+    <p id="description">A simple personal tracker for essays to read.</p>
+
+    <form id="essayForm">
+        <input type="text" id="title" placeholder="Title" required>
+        <input type="url" id="link" placeholder="Link" required>
+        <textarea id="notes" placeholder="Notes"></textarea>
+        <select id="priority">
+            <option value="high">High</option>
+            <option value="medium" selected>Medium</option>
+            <option value="low">Low</option>
+        </select>
+        <button type="submit">Add Essay</button>
+    </form>
+
+    <div id="essayList"></div>
+</body>
+</html>
