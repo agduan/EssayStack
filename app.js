@@ -1,13 +1,13 @@
 // set up firebase config
-// const firebaseConfig = {
-//     apiKey: // api key here - TODO
-//     authDomain:
-//     databaseURL:
-//     projectId:
-//     storageBucket:
-//     messagingSenderId:
-//     appId:
-// };
+const firebaseConfig = {
+    apiKey: "AIzaSyCEPm9lj3zMbWJVMaysoeFxmLCQFYwS1Ic",
+    authDomain: "essay-tracker-project.firebaseapp.com",
+    databaseURL: "https://essay-tracker-project-default-rtdb.firebaseio.com",
+    projectId: "essay-tracker-project",
+    storageBucket: "essay-tracker-project.firebasestorage.app",
+    messagingSenderId: "122663238518",
+    appId: "1:122663238518:web:03cc0a8767237337a65857"
+};
 
 // initialize firebase
 firebase.initializeApp(firebaseConfig);
