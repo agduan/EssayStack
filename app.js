@@ -41,8 +41,11 @@ db.ref('essays').on('value', (snapshot) => {
   // sorting
   arr.sort((a, b) => {
     const pr = { high: 0, medium: 1, low: 2 };
+    
     if (a.status !== b.status) return a.status === "unread" ? -1 : 1;
-    return pr[a.priority] - pr[b.priority];
+    if (pr[a.priority] !== pr[b.priority]) return pr[a.priority] - pr[b.priority];
+
+    return new Date(b.dateAdded) - new Date(a.dateAdded);
   });
 
   // displaying
@@ -59,14 +62,22 @@ db.ref('essays').on('value', (snapshot) => {
     div.innerHTML = `<div style="display: flex; justify-content: space-between; align-items: baseline;">
       <h3><a href="${link || '#'}" target="_blank">${title}</a></h3>
       <span style="color: gray; font-size: 0.9em;">${status.toUpperCase()}</span>
-</div>
+      </div>
+
       ${hostname ? `<p class="hostname">${hostname}</p>` : ""}
       <p class="notes">${notes}</p>
       <p class="date">${new Date(dateAdded).toLocaleDateString()}</p>
       
-      <button class="toggle">${status === "unread" ? "Mark Read" : "Mark Unread"}</button>
-      <button class="delete">Delete</button>
-    `;
+      <button class="toggle">
+        ${status === "unread" ? ".pop()" : "un-pop"}<br>
+        <span style="font-size: 0.9em; color: gray;">${status === "unread" ? "Mark as read" : "Mark as unread"}</span>
+      </button>
+
+      <button class="delete">
+        .remove()<br>
+        <span style="font-size: 0.9em; color: gray;">Delete essay</span>
+        </button>
+      `;
 
     // event listeners
     div.querySelector('.toggle').onclick = () => {
