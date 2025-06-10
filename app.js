@@ -38,12 +38,14 @@ db.ref('essays').on('value', (snapshot) => {
   const data = snapshot.val() || {};
   const arr = Object.entries(data).map(([id, val]) => ({ id, ...val }));
 
+  // sorting
   arr.sort((a, b) => {
     const pr = { high: 0, medium: 1, low: 2 };
     if (a.status !== b.status) return a.status === "unread" ? -1 : 1;
     return pr[a.priority] - pr[b.priority];
   });
 
+  // displaying
   arr.forEach(({ title, link, notes, dateAdded, status, priority }) => {
     const div = document.createElement('div');
     div.className = `essay ${status} ${priority}`;
@@ -58,7 +60,19 @@ db.ref('essays').on('value', (snapshot) => {
       ${hostname ? `<p class="hostname">${hostname}</p>` : ""}
       <p class="notes">${notes}</p>
       <p class="date">${new Date(dateAdded).toLocaleDateString()}</p>
+      
+      <button class="toggle">${status === "unread" ? "Mark Read" : "Mark Unread"}</button>
+      <button class="delete">Delete</button>
     `;
+
+    // event listeners
+    div.querySelector('.toggle').onclick = () => {
+        db.ref('essays/' + id).update({ status: status === "read" ? "unread" : "read" });
+    };
+  
+    div.querySelector('.delete').onclick = () => {
+        db.ref('essays/' + id).remove();
+    };
 
     list.appendChild(div);
   });
